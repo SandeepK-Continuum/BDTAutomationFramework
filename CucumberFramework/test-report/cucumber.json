@@ -1,0 +1,114 @@
+[
+  {
+    "id": "as-a-user-i-can-login-to-its-portal-with-valid-credentials-so-that-only-authorized-user-have",
+    "description": "access to my resources.",
+    "name": "As a user I can login to ITS portal with valid credentials so that only authorized user have",
+    "keyword": "Feature",
+    "line": 1,
+    "elements": [
+      {
+        "id": "as-a-user-i-can-login-to-its-portal-with-valid-credentials-so-that-only-authorized-user-have;verify-authorized-login;;2",
+        "tags": [
+          {
+            "name": "@SmokeTest",
+            "line": 4
+          }
+        ],
+        "description": "",
+        "name": "Verify authorized login",
+        "keyword": "Scenario Outline",
+        "line": 15,
+        "steps": [
+          {
+            "result": {
+              "duration": 465534963,
+              "status": "passed"
+            },
+            "name": "User can navigate to ITS Portal",
+            "keyword": "Given ",
+            "line": 7,
+            "match": {
+              "location": "StepDefinations.user_can_navigate_to_ITS_Portal()"
+            }
+          },
+          {
+            "result": {
+              "duration": 27090894547,
+              "status": "passed"
+            },
+            "name": "Enter Login credentials \"automationBDD@continuum.net\" and  \"Abc@12345\"",
+            "keyword": "When ",
+            "line": 8,
+            "match": {
+              "arguments": [
+                {
+                  "val": "automationBDD@continuum.net",
+                  "offset": 25
+                },
+                {
+                  "val": "Abc@12345",
+                  "offset": 60
+                }
+              ],
+              "location": "StepDefinations.enter_Login_credentials(String,String)"
+            },
+            "matchedColumns": [
+              0,
+              1
+            ]
+          },
+          {
+            "result": {
+              "duration": 220533569,
+              "status": "passed"
+            },
+            "name": "Verify user is login to ITS portal",
+            "keyword": "Then ",
+            "line": 9,
+            "match": {
+              "location": "StepDefinations.verify_user_is_login_to_ITS_portal()"
+            }
+          },
+          {
+            "result": {
+              "duration": 26863,
+              "status": "passed"
+            },
+            "name": "Dashboard is displayed by default",
+            "keyword": "And ",
+            "line": 10,
+            "match": {
+              "location": "StepDefinations.dashboard_is_displayed_by_default()"
+            }
+          },
+          {
+            "result": {
+              "duration": 2341189837,
+              "status": "passed"
+            },
+            "name": "Verify user is able to logout",
+            "keyword": "And ",
+            "line": 11,
+            "match": {
+              "location": "StepDefinations.verify_user_is_able_to_logout()"
+            }
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "name": "Update Result to TestRail \"12345\"",
+            "keyword": "And ",
+            "line": 12,
+            "match": {},
+            "matchedColumns": [
+              2
+            ]
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "uri": "LoginScenario.feature"
+  }
+]
