@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
@@ -22,6 +23,9 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.junit.runners.model.TestClass;
 import org.testng.Reporter;
@@ -29,6 +33,8 @@ import org.testng.Reporter;
 
 
 public class Utilities {
+	
+	private static HashMap<String,String> validations=new HashMap<String,String>();
 	
 	public static String  getMavenProperties(String key){
 	
@@ -46,35 +52,34 @@ public class Utilities {
 	
 	
 	
-	public static List<String> readValidationsFromExcelFile(String excelFileName,String SheetName, String TestCaseID) throws IOException {
+	public static HashMap<String,String> readValidationsFromExcelFile(String excelFileName,String TestCaseID)  {
 		 String excelFilePath = new File("").getAbsolutePath()+"\\src\\test\\resources\\Data\\"+excelFileName;
-		List<String> validations =new ArrayList<String>();
+		 System.out.println("Reading validation points from excel file "+excelFileName);
 		try{
 	    FileInputStream inputStream = new FileInputStream(new File(excelFilePath));
-	 
+	    XSSFRow row;
 	    XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
-	    Sheet firstSheet = workbook.getSheet(SheetName);
-	    System.out.println("workbook created "+workbook);
-	    Iterator<Row> iterator = firstSheet.iterator();
-	 
-	    while (iterator.hasNext()) 
-	     {
-	        Row nextRow = iterator.next();
-	        Iterator<Cell> cellIterator = nextRow.cellIterator();
-	        Cell tCId= nextRow.getCell(1);
-	        System.out.println("Test case id"+tCId);
-	         String testCaseno= String.valueOf(getCellValue(tCId));
-	         if(testCaseno.contains(TestCaseID))
+	//    System.out.println("workbook created "+workbook);
+	    XSSFSheet spreadsheet = workbook.getSheet(TestCaseID);
+	      Iterator < Row > rowIterator = spreadsheet.iterator();
+	      while (rowIterator.hasNext()) 
+	      {
+	         row = (XSSFRow) rowIterator.next();
+	         Iterator < Cell > cellIterator = row.cellIterator();
+	         while ( cellIterator.hasNext()) 
 	         {
-	           while (cellIterator.hasNext()) {
-	                Cell nextCell = cellIterator.next();
-	                int columnIndex = nextCell.getColumnIndex();
-	                validations.set(columnIndex,String.valueOf(getCellValue(nextCell)));
-	                System.out.print("Validations Point"+validations.get(columnIndex));
-	                }
-	          }
-	 
+	            Cell cellKey = row.getCell(0);
+	            Cell cellValue=row.getCell(1);
+	            //System.out.println("Key :"+getCellValue(cellKey).toString()+"    Value:"+getCellValue(cellValue).toString());
+	            validations.put(getCellValue(cellKey).toString(), getCellValue(cellValue).toString());
+	            cellKey = cellIterator.next();
+	            cellValue = cellIterator.next();
+	         } 
+	        
+
 	      }
+	    
+	   
 	    
 	    workbook.close();
 	    inputStream.close();
@@ -101,41 +106,16 @@ public class Utilities {
 	 
 	    return null;
 	}
-	public static List<String> readValidationsFromExcelFile(String excelFileName, String TestCaseID) {
-		 String excelFilePath = new File("").getAbsolutePath()+"\\src\\test\\resources\\Data\\"+excelFileName;
-		List<String> validations =new ArrayList<String>();
-	    try{
-		FileInputStream inputStream = new FileInputStream(new File(excelFilePath));
-	 
-		XSSFWorkbook workbook = new XSSFWorkbook(inputStream);
-		  // System.out.println("workbook created "+workbook);
-	    Sheet firstSheet = workbook.getSheetAt(0);
-	    Iterator<Row> iterator = firstSheet.iterator();
-	 
-	    while (iterator.hasNext()) 
-	     {
-	        Row nextRow = iterator.next();
-	        Iterator<Cell> cellIterator = nextRow.cellIterator();
-	        Cell tCId= nextRow.getCell(0);
-	       
-	         String testCaseno= String.valueOf(getCellValue(tCId));
-	       
-	         if(testCaseno.contains(TestCaseID))
-	         {
-	        	
-	          }
-	 
-	      }
-	    
-	    workbook.close();
-	    inputStream.close();
-	    }catch (Exception e)
-	    {
-	    	System.out.println("Not able to connect Excelsheet at  "+excelFilePath);
-	    	e.printStackTrace();
-	    }
-	    return validations;
-	}
 	
+	
+	public static String getKeyValue( String excelFileName,String TestCaseID,String key){
+		if(validations.isEmpty())
+		{ validations=readValidationsFromExcelFile(excelFileName,TestCaseID);}
+		
+		String value= validations.get(key);
+		 System.out.println("Key :"+key+"    Value:"+value);
+		return value;
+		
+	}
 }
 
