@@ -126,24 +126,10 @@ import continuum.cucumber.testRunner.TestRunner;
 }
 	    
 	    		private void killSeleniumServer() {
-	    			 String processName="java.exe";
-	    			  String tasksLine;
-	    		
-	    			 Process listTasksProcess;
-					try {
-						listTasksProcess = Runtime.getRuntime().exec("tasklist");
-					
-	    			 BufferedReader tasksListReader = new BufferedReader(new InputStreamReader(listTasksProcess.getInputStream()));
-                        
-	   
+                    try{
 
-	    			        while ((tasksLine = tasksListReader.readLine()) != null)
-	    			        {
-	    			            if (tasksLine.contains(processName))
-	    			            {
-	    			            	Runtime.getRuntime().exec("taskkill /F /IM " + processName);
-	    			            }
-	    			        }
+	    			Runtime.getRuntime().exec("cmd /c http://localhost:4444/selenium-server/driver/?cmd=shutDownSeleniumServer");
+
 					} catch (IOException e) {
 						System.out.println("Not able to kill selenium server");
 						e.printStackTrace();
