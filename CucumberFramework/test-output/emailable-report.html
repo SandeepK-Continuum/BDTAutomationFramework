@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>TestNG Report</title><style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}</style></head><body><table><tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr><tr><th colspan="7">BDTSuite</th></tr><tr><td><a href="#t0">Cucumber-Test</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">39,586</td><td></td><td></td></tr></table><table><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">BDTSuite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Cucumber-Test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">continuum.cucumber.testRunner.TestRunner</td><td><a href="#m0">feature</a></td><td rowspan="1">1471611729260</td><td rowspan="1">37256</td></tr><tr><th colspan="4">Cucumber-Test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">continuum.cucumber.testRunner.TestRunner</td><td><a href="#m1">feature</a></td><td rowspan="1">1471611729332</td><td rowspan="1">34542</td></tr></tbody></table><h2>Cucumber-Test</h2><h3 id="m0">continuum.cucumber.testRunner.TestRunner#feature</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.
+Build info: version: &apos;2.48.0&apos;, revision: &apos;b7b081a4f1289f17e8ecd38bc67e137c2a12e34a&apos;, time: &apos;2015-10-07 09:50:14&apos;
+System info: host: &apos;RMM-LT-618&apos;, ip: &apos;10.2.60.143&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_79&apos;
+Driver info: driver.version: ListnerWebDriver
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:670)
+	at org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:516)
+	at continuum.cucumber.ListnerWebDriver.afterInvocation(ListnerWebDriver.java:121)
+Caused by: org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4444 [/127.0.0.1] failed: Connection refused: connect
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)
+	at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+	at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)
+	at org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:620)
+	... 25 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)
+	at java.net.AbstractPlainSocketImpl.connect(Unknown Source)
+	at java.net.PlainSocketImpl.connect(Unknown Source)
+	at java.net.SocksSocketImpl.connect(Unknown Source)
+	at java.net.Socket.connect(Unknown Source)
+	at org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)
+	at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)
+	... 38 more
+... Removed 22 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p><h3 id="m1">continuum.cucumber.testRunner.TestRunner#feature</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>As a user I can login to ITS portal with valid credentials so that only authorized user have</td></tr><tr><th>Messages</th></tr><tr><td><div class="messages">User is navigated to ITS portal<br/>Enter login credentials  to ITS portal<br/>Enter Value in Login email id textbox text field automationBDD@continuum.net Pass Value automationBDD@continuum.net entered successfully<br/>Enter Value in Login password text box text field Abc@12345 Pass Value Abc@12345 entered successfully<br/>Change Remember me checkbox checkbox status to check<br/>Clicking on  Login button<br/>Enter Value in Login email id textbox text field automationBDD@continuum.net Pass Value automationBDD@continuum.net entered successfully<br/>Enter Value in Login password text box text field Abc@12345 Pass Value Abc@12345 entered successfully<br/>Clicking on  Login button<br/>Clicking on  Logout Btn<br/>*****  feature test has Passed *****</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p></body></html>

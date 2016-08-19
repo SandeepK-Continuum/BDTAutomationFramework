@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="" lang="">
+<head>
+  <title>Test Results Report - Cucumber-Test</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="description" content="TestNG unit test results." />
+  <link href="reportng.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="reportng.js"></script>
+</head>
+<body>
+<h1>Cucumber-Test</h1>
+<p>
+  Test duration: 74.086s
+</p>
+
+
+
+  <table class="resultsTable">
+    <tr><th colspan="3" class="header failed">Failed Tests</th></tr>
+          <tr>
+        <td colspan="3" class="group">continuum.cucumber.testRunner.TestRunner</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  <span class="description" title="Runs Cucumber Feature">feature</span>
+      </td>
+  <td class="duration">
+    37.256s
+  </td>
+  <td class="result">
+        
+    
+        
+
+        <a href="javascript:toggleElement('exception-0', 'block')" title="Click to expand/collapse"><b>org.openqa.selenium.remote.UnreachableBrowserException: Error communicating with the remote browser. It may have died.<br/>
+Build info: version: &apos;2.48.0&apos;, revision: &apos;b7b081a4f1289f17e8ecd38bc67e137c2a12e34a&apos;, time: &apos;2015-10-07 09:50:14&apos;<br/>
+System info: host: &apos;RMM-LT-618&apos;, ip: &apos;10.2.60.143&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;1.7.0_79&apos;<br/>
+Driver info: driver.version: ListnerWebDriver</b></a><br />
+    <div class="stackTrace" id="exception-0">
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:641)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:670)<br />
+              org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:516)<br />
+              continuum.cucumber.ListnerWebDriver.afterInvocation(ListnerWebDriver.java:121)<br />
+              org.testng.internal.invokers.InvokedMethodListenerInvoker$InvokeAfterInvocationWithoutContextStrategy.callMethod(InvokedMethodListenerInvoker.java:100)<br />
+              org.testng.internal.invokers.InvokedMethodListenerInvoker.invokeListener(InvokedMethodListenerInvoker.java:62)<br />
+              org.testng.internal.Invoker.runInvokedMethodListeners(Invoker.java:556)<br />
+              org.testng.internal.Invoker.invokeMethod(Invoker.java:699)<br />
+              org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)<br />
+              org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)<br />
+              org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+              org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+              org.testng.TestRunner.privateRun(TestRunner.java:782)<br />
+              org.testng.TestRunner.run(TestRunner.java:632)<br />
+              org.testng.SuiteRunner.runTest(SuiteRunner.java:366)<br />
+              org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)<br />
+              org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)<br />
+              org.testng.SuiteRunner.run(SuiteRunner.java:268)<br />
+              org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+              org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+              org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)<br />
+              org.testng.TestNG.runSuitesLocally(TestNG.java:1169)<br />
+              org.testng.TestNG.run(TestNG.java:1064)<br />
+              org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)<br />
+              org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)<br />
+              org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)<br />
+                    <b>Caused by: </b> <a href="javascript:toggleElement('exception-1', 'block')" title="Click to expand/collapse">org.apache.http.conn.HttpHostConnectException: Connect to 127.0.0.1:4444 [/127.0.0.1] failed: Connection refused: connect</a><br />
+        <div class="stackTrace" id="exception-1">
+                      org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:151)<br />
+                      org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)<br />
+                      org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)<br />
+                      org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)<br />
+                      org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)<br />
+                      org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)<br />
+                      org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)<br />
+                      org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)<br />
+                      org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:620)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:670)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:516)<br />
+                      continuum.cucumber.ListnerWebDriver.afterInvocation(ListnerWebDriver.java:121)<br />
+                      org.testng.internal.invokers.InvokedMethodListenerInvoker$InvokeAfterInvocationWithoutContextStrategy.callMethod(InvokedMethodListenerInvoker.java:100)<br />
+                      org.testng.internal.invokers.InvokedMethodListenerInvoker.invokeListener(InvokedMethodListenerInvoker.java:62)<br />
+                      org.testng.internal.Invoker.runInvokedMethodListeners(Invoker.java:556)<br />
+                      org.testng.internal.Invoker.invokeMethod(Invoker.java:699)<br />
+                      org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)<br />
+                      org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)<br />
+                      org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+                      org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+                      org.testng.TestRunner.privateRun(TestRunner.java:782)<br />
+                      org.testng.TestRunner.run(TestRunner.java:632)<br />
+                      org.testng.SuiteRunner.runTest(SuiteRunner.java:366)<br />
+                      org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)<br />
+                      org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)<br />
+                      org.testng.SuiteRunner.run(SuiteRunner.java:268)<br />
+                      org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+                      org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+                      org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)<br />
+                      org.testng.TestNG.runSuitesLocally(TestNG.java:1169)<br />
+                      org.testng.TestNG.run(TestNG.java:1064)<br />
+                      org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)<br />
+                      org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)<br />
+                      org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)<br />
+                  </div>
+              <b>Caused by: </b> <a href="javascript:toggleElement('exception-2', 'block')" title="Click to expand/collapse">java.net.ConnectException: Connection refused: connect</a><br />
+        <div class="stackTrace" id="exception-2">
+                      java.net.DualStackPlainSocketImpl.waitForConnect(Native Method)<br />
+                      java.net.DualStackPlainSocketImpl.socketConnect(Unknown Source)<br />
+                      java.net.AbstractPlainSocketImpl.doConnect(Unknown Source)<br />
+                      java.net.AbstractPlainSocketImpl.connectToAddress(Unknown Source)<br />
+                      java.net.AbstractPlainSocketImpl.connect(Unknown Source)<br />
+                      java.net.PlainSocketImpl.connect(Unknown Source)<br />
+                      java.net.SocksSocketImpl.connect(Unknown Source)<br />
+                      java.net.Socket.connect(Unknown Source)<br />
+                      org.apache.http.conn.socket.PlainConnectionSocketFactory.connectSocket(PlainConnectionSocketFactory.java:74)<br />
+                      org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:134)<br />
+                      org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)<br />
+                      org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)<br />
+                      org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)<br />
+                      org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)<br />
+                      org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)<br />
+                      org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)<br />
+                      org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:71)<br />
+                      org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:55)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.fallBackExecute(ApacheHttpClient.java:143)<br />
+                      org.openqa.selenium.remote.internal.ApacheHttpClient.execute(ApacheHttpClient.java:89)<br />
+                      org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:142)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:620)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:670)<br />
+                      org.openqa.selenium.remote.RemoteWebDriver.quit(RemoteWebDriver.java:516)<br />
+                      continuum.cucumber.ListnerWebDriver.afterInvocation(ListnerWebDriver.java:121)<br />
+                      org.testng.internal.invokers.InvokedMethodListenerInvoker$InvokeAfterInvocationWithoutContextStrategy.callMethod(InvokedMethodListenerInvoker.java:100)<br />
+                      org.testng.internal.invokers.InvokedMethodListenerInvoker.invokeListener(InvokedMethodListenerInvoker.java:62)<br />
+                      org.testng.internal.Invoker.runInvokedMethodListeners(Invoker.java:556)<br />
+                      org.testng.internal.Invoker.invokeMethod(Invoker.java:699)<br />
+                      org.testng.internal.Invoker.invokeTestMethod(Invoker.java:820)<br />
+                      org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1128)<br />
+                      org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:129)<br />
+                      org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:112)<br />
+                      org.testng.TestRunner.privateRun(TestRunner.java:782)<br />
+                      org.testng.TestRunner.run(TestRunner.java:632)<br />
+                      org.testng.SuiteRunner.runTest(SuiteRunner.java:366)<br />
+                      org.testng.SuiteRunner.runSequentially(SuiteRunner.java:361)<br />
+                      org.testng.SuiteRunner.privateRun(SuiteRunner.java:319)<br />
+                      org.testng.SuiteRunner.run(SuiteRunner.java:268)<br />
+                      org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)<br />
+                      org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)<br />
+                      org.testng.TestNG.runSuitesSequentially(TestNG.java:1244)<br />
+                      org.testng.TestNG.runSuitesLocally(TestNG.java:1169)<br />
+                      org.testng.TestNG.run(TestNG.java:1064)<br />
+                      org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:126)<br />
+                      org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:152)<br />
+                      org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:57)<br />
+                  </div>
+          </div>
+      </td>
+</tr>
+      </table>
+
+
+  <table class="resultsTable">
+    <tr><th colspan="3" class="header passed">Passed Tests</th></tr>
+          <tr>
+        <td colspan="3" class="group">continuum.cucumber.testRunner.TestRunner</td>
+      </tr>
+            
+<tr>
+  <td class="method">
+                  <span class="description" title="Runs Cucumber Feature">feature</span>
+      </td>
+  <td class="duration">
+    34.542s
+  </td>
+  <td class="result">
+        
+          <i>Method arguments: </i><span class="arguments">As a user I can login to ITS portal with valid credentials so that only authorized user have</span><br />
+    
+            <div class="testOutput">
+                        User is navigated to ITS portal<br />
+                                Enter login credentials&nbsp; to ITS portal<br />
+                                Enter Value in Login email id textbox text field automationBDD@continuum.net Pass Value automationBDD@continuum.net entered successfully<br />
+                                Enter Value in Login password text box text field Abc@12345 Pass Value Abc@12345 entered successfully<br />
+                                Change Remember me checkbox checkbox status to check<br />
+                                Clicking on&nbsp; Login button<br />
+                                Enter Value in Login email id textbox text field automationBDD@continuum.net Pass Value automationBDD@continuum.net entered successfully<br />
+                                Enter Value in Login password text box text field Abc@12345 Pass Value Abc@12345 entered successfully<br />
+                                Clicking on&nbsp; Login button<br />
+                                Clicking on&nbsp; Logout Btn<br />
+                                *****&nbsp; feature test has Passed *****<br />
+                  </div>
+    
+
+      </td>
+</tr>
+      </table>
+  
+</body>
+</html>

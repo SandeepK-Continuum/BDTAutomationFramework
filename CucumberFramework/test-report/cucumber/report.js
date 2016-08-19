@@ -1,4 +1,4 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("LoginScenario.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("src/test/resources/features/DemoSprint/LoginScenario.feature");
 formatter.feature({
   "id": "as-a-user-i-can-login-to-its-portal-with-valid-credentials-so-that-only-authorized-user-have",
   "description": "access to my resources.",
@@ -62,7 +62,8 @@ formatter.examples({
       "cells": [
         "EmailId",
         "Password",
-        "TestCaseId"
+        "TestCaseId",
+        "SheetName"
       ],
       "line": 14
     },
@@ -71,7 +72,8 @@ formatter.examples({
       "cells": [
         "automationBDD@continuum.net",
         "Abc@12345",
-        "12345"
+        "12345",
+        "fasf"
       ],
       "line": 15
     }
@@ -132,7 +134,7 @@ formatter.match({
   "location": "StepDefinations.user_can_navigate_to_ITS_Portal()"
 });
 formatter.result({
-  "duration": 465534963,
+  "duration": 134047515,
   "status": "passed"
 });
 formatter.match({
@@ -149,32 +151,40 @@ formatter.match({
   "location": "StepDefinations.enter_Login_credentials(String,String)"
 });
 formatter.result({
-  "duration": 27090894547,
+  "duration": 26302111691,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinations.verify_user_is_login_to_ITS_portal()"
 });
 formatter.result({
-  "duration": 220533569,
+  "duration": 79631761,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinations.dashboard_is_displayed_by_default()"
 });
 formatter.result({
-  "duration": 26863,
+  "duration": 31209,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefinations.verify_user_is_able_to_logout()"
 });
 formatter.result({
-  "duration": 2341189837,
+  "duration": 2259733282,
   "status": "passed"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
+formatter.match({
+  "arguments": [
+    {
+      "val": "12345",
+      "offset": 27
+    }
+  ],
+  "location": "StepDefinations.update_Result_to_TestRail(String)"
 });
+formatter.result({
+  "duration": 87307,
+  "status": "passed"
 });

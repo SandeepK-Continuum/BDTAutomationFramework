@@ -27,7 +27,7 @@ import cucumber.api.testng.TestNGCucumberRunner;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-features = "src//test//resources//features//DemoSprint",
+features = "src//test//resources//features//DemoSprint//LoginScenario.feature",
 glue="continuum.cucumber.stepDefinations",
 plugin = {
 "pretty",

@@ -1,7 +1,10 @@
 package continuum.cucumber;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -114,7 +117,7 @@ import continuum.cucumber.testRunner.TestRunner;
 								e.printStackTrace();
 							}
 		            	}
-		        		
+		        		killSeleniumServer();
 		                driver.quit();
 		              
 		              }
@@ -122,7 +125,33 @@ import continuum.cucumber.testRunner.TestRunner;
 	    			
 }
 	    
-	    		public static void takeScreenShot(String screenShotName, String testName) {
+	    		private void killSeleniumServer() {
+	    			 String processName="java.exe";
+	    			  String tasksLine;
+	    		
+	    			 Process listTasksProcess;
+					try {
+						listTasksProcess = Runtime.getRuntime().exec("tasklist");
+					
+	    			 BufferedReader tasksListReader = new BufferedReader(new InputStreamReader(listTasksProcess.getInputStream()));
+                        
+	   
+
+	    			        while ((tasksLine = tasksListReader.readLine()) != null)
+	    			        {
+	    			            if (tasksLine.contains(processName))
+	    			            {
+	    			            	Runtime.getRuntime().exec("taskkill /F /IM " + processName);
+	    			            }
+	    			        }
+					} catch (IOException e) {
+						System.out.println("Not able to kill selenium server");
+						e.printStackTrace();
+					}
+			
+		}
+
+				public static void takeScreenShot(String screenShotName, String testName) {
 //	    			String jenkins = Utilities.getConfigValues("jenkins");
 //	    			if(jenkins.equalsIgnoreCase("true"))
 //	    			{
@@ -172,18 +201,18 @@ import continuum.cucumber.testRunner.TestRunner;
 	    			  {
 	    				Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -role hub -maxInstances 4");
 	    				Thread.sleep(1000);
-	    				Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -role node -hub http://localhost:4444/grid/register -Dwebdriver.ie.driver="+IEDriverLocation+" -maxInstances 4 -port 5555 -browser browserName=\"internet explorer,version=9.0.8,platform=WINDOWS\"");
+	    				Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -role node -hub http://localhost:4444/grid/register -Dwebdriver.ie.driver="+IEDriverLocation+" -maxInstances 4 -port 5555 -Dwebdriver.chrome.driver="+ChromeDriverLocation+"");
 	    				Thread.sleep(1000);
-	    				Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -role node -hub http://localhost:4444/grid/register -Dwebdriver.ie.driver="+IEDriverLocation+" -maxInstances 4 -port 8585 -browser browserName=\"internet explorer,version=9.0.8,platform=WINDOWS\"");
+	    				Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -role node -hub http://localhost:4444/grid/register -Dwebdriver.ie.driver="+IEDriverLocation+" -maxInstances 4 -port 8585 -Dwebdriver.chrome.driver="+ChromeDriverLocation+" ");
 	    				Thread.sleep(1000);
-	    				Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -role node -hub http://localhost:4444/grid/register -Dwebdriver.ie.driver="+IEDriverLocation+" -maxInstances 4 -port 5556 -browser browserName=\"internet explorer,version=9.0.8,platform=WINDOWS\"");
+	    				Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -role node -hub http://localhost:4444/grid/register -Dwebdriver.ie.driver="+IEDriverLocation+" -maxInstances 4 -port 5556 -Dwebdriver.chrome.driver="+ChromeDriverLocation+" ");
 	    				Thread.sleep(1000);
-	    				Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -role node -hub http://localhost:4444/grid/register -Dwebdriver.ie.driver="+IEDriverLocation+" -maxInstances 4 -port 5004 -browser browserName=\"internet explorer,version=9.0.8,platform=WINDOWS\"");
+	    				Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -role node -hub http://localhost:4444/grid/register -Dwebdriver.ie.driver="+IEDriverLocation+" -maxInstances 4 -port 5004 -Dwebdriver.chrome.driver="+ChromeDriverLocation+" ");
 	    				//System.out.println("Launching Remote webdriver on hub "+hubUrl);
 	    			  }
 	    				else{
 	    					
-	    					Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation);
+	    					Runtime.getRuntime().exec("cmd /c java -jar "+serverLocation+" -Dwebdriver.chrome.driver="+ChromeDriverLocation+"-Dwebdriver.ie.driver="+IEDriverLocation+" ");
     				        Thread.sleep(1000);
 	    				}
 	    			} catch (Exception e) {

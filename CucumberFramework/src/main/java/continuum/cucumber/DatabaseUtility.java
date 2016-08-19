@@ -16,10 +16,7 @@ public class DatabaseUtility {
 
 	
 	public static final String DRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-	public static final String databaseName=Utilities.getMavenProperties("DBName");
-	public static final String sqlServerURL=Utilities.getMavenProperties("DBServerUrl");
-	public static final String username=Utilities.getMavenProperties("DBUsername");
-	public static final String password=Utilities.getMavenProperties("DBPwd");
+
 			
 	public void resultUpdateToDataBase(String testMethodName,String testResultStatus, 
 			String[] string_Array,String executionTime,String timeStamp,
@@ -27,7 +24,10 @@ public class DatabaseUtility {
 		
 		Connection dataBaseConnection = null;
 		Statement stmt = null;
-		
+		String databaseName=Utilities.getMavenProperties("DBName");
+		String sqlServerURL=Utilities.getMavenProperties("DBServerUrl");
+		String username=Utilities.getMavenProperties("DBUsername");
+		String password=Utilities.getMavenProperties("DBPwd");
 		try{
 			dataBaseConnection = createConnection(databaseName,sqlServerURL, username, password);
 			System.out.println("Database is Connected");

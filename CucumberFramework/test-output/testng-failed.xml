@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [BDTSuite]">
+  <listeners>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="continuum.cucumber.ListnerWebDriver"/>
+  </listeners>
+  <test name="Cucumber-Test">
+    <packages>
+      <package name="continuum.cucumber.testRunner"/>
+    </packages>
+    <classes>
+      <class name="continuum.cucumber.testRunner.TestRunner"/>
+    </classes>
+  </test> <!-- Cucumber-Test -->
+  <test name="Cucumber-Test(failed)">
+    <classes>
+      <class name="continuum.cucumber.testRunner.TestRunner">
+        <methods>
+          <include name="tearDownClass"/>
+          <include name="feature"/>
+          <include name="setUpClass"/>
+        </methods>
+      </class> <!-- continuum.cucumber.testRunner.TestRunner -->
+    </classes>
+  </test> <!-- Cucumber-Test(failed) -->
+</suite> <!-- Failed suite [BDTSuite] -->

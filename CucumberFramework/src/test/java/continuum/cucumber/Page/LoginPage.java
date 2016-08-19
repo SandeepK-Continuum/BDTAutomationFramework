@@ -1,5 +1,6 @@
 package continuum.cucumber.Page;
 
+import java.sql.Connection;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.concurrent.TimeUnit;
@@ -9,7 +10,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 
+import continuum.cucumber.DatabaseUtility;
 import continuum.cucumber.Locator;
+import continuum.cucumber.Utilities;
 import continuum.cucumber.WebdriverWrapper;
 
 public class LoginPage {
@@ -40,6 +43,14 @@ public class LoginPage {
 				
 	}
 
-	
+	public void testConnection(){
+		final String databaseName=Utilities.getMavenProperties("DBName");
+		final String sqlServerURL=Utilities.getMavenProperties("DBServerUrl");
+		final String username=Utilities.getMavenProperties("DBUsername");
+		final String password=Utilities.getMavenProperties("DBPwd");
+		Connection conn =DatabaseUtility.createConnection(databaseName, sqlServerURL, username, password);
+	if(conn!=null)
+		System.out.println("Database connection made");
+	}
 
 }

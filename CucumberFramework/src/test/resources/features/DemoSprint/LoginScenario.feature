@@ -11,6 +11,6 @@ Scenario Outline: Verify authorized login
  And Verify user is able to logout
  And Update Result to TestRail "<TestCaseId>"
  Examples: 
- |      EmailId                |  Password  |TestCaseId|
- | automationBDD@continuum.net |  Abc@12345 | 12345    |
+ |      EmailId                |  Password  |TestCaseId|SheetName|
+ | automationBDD@continuum.net |  Abc@12345 | 12345    |fasf|
  
